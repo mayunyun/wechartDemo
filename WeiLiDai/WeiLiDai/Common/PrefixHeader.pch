@@ -1,0 +1,237 @@
+//
+//  PrefixHeader.pch
+//  WeiLiDai
+//
+//  Created by j on 2017/12/18.
+//  Copyright © 2017年 j. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "MBProgressHUD.h"
+#import "Masonry.h"
+#import "SingleTon.h"
+#import "NSString+Common.h"
+#import "FactryFucClass.h"
+#import "UIViewExt.h"
+#import "UIColor+HTRGB.h"
+
+/**
+ *人民币标志
+ */
+#define RMBSign @"￥"
+/**
+ *版权的标志
+ */
+#define CopyRightSign @"©"
+
+/**
+ *navigationBar的高度
+ */
+#define NavigationBarHeight 44
+/**
+ *ZJScrollPageView标题栏的高度
+ */
+#define ToolBarHeight (Width_Scall * 109)//(Width_Scall * 89)
+
+//适配iPhoneX
+#define IS_IPHONE       (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_X     (IS_IPHONE && [[UIScreen mainScreen] bounds].size.height == 812.0f)
+#define IS_IOS_11       ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.f)
+#define TabBarHeight    (IS_IPHONE_X ? (49.0 + 34.0) : 49.0)
+#define StatusBarHeight (IS_IPHONE_X ? 44.0 : 20.0)
+/**
+ iPhone X 底部安全区的高度
+ */
+#define iPhoneXSaftAreaH (IS_IPHONE_X ? 34 : 0)
+
+/**
+ *屏幕宽度
+ */
+#define SCREEN_WIDTH  [[UIScreen mainScreen] bounds].size.width
+//如果项目中设置了导航条为不透明，即[UINavigationBar appearance].translucent=NO，那么这里的kViewHeight需要-64
+/**
+ *屏幕高度
+ */
+#define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
+
+/**
+ 屏幕宽度与演示图宽度的比例
+ 
+ @param 750 演示图宽度
+ */
+//#define Width_Scall (SCREEN_WIDTH / 750)
+//#define Width_Scall (SCREEN_WIDTH / (SCREEN_WIDTH == 414?1242:750)) * (SCREEN_WIDTH == 414?1.5:1)
+#define Width_Scall (0.5)
+#define Width_ScallPlus (1/3)
+//#define Width_Scall (((SCREEN_WIDTH == 414?375:SCREEN_WIDTH) / 750) * (SCREEN_WIDTH == 414?1.104:1))
+
+#define Height_ScallPlus (736 / 2208)
+
+/**
+ *根据RGB生成UIColor对象
+ */
+#define ColorWithRGB(r,g,b,p) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:p]
+
+/**
+ *弱引用
+ */
+#define weakify(var) __weak typeof(var) weakSelf = var
+
+/**
+ tableView和CollectionView的浅灰背景色
+ */
+#define TableViewBGColor ColorWithRGB(239, 239, 245, 1)
+
+/**
+ *For text, messages, etc
+ */
+#define DEFAULT_FONTSIZE 16//15
+/**
+ *For table cells
+ */
+#define CELL_FONTSIZE 17//16
+/**
+ *头视图的颜色
+ */
+#define CollectionHeaderViewBGColor ColorWithRGB(104, 111, 120, 1)
+
+/**
+ *灰色的边框颜色
+ */
+#define grayBorderColor ColorWithRGB(224, 225, 226, 1)
+/**
+ *选择还款期数动画的灰色背景颜色
+ */
+#define grayHuanKuanQiShuBGColor ColorWithRGB(248, 248, 248, 1)
+/**
+ *选择还款期数标题灰色
+ */
+#define grayHuanKuanQiShuTitleColor ColorWithRGB(121, 121, 121, 1)
+/**
+ 
+ */
+#define grayMineTitleColor ColorWithRGB(127, 127, 127, 1);
+/**
+ *选择还款期数标题的左边距
+ */
+#define huanKuanQiShuTitleLabelX (Width_Scall * 60)
+/**
+ *选择还款期数副标题的左边距
+ */
+#define huanKuanQiShuSubtitleLabelX (Width_Scall * 295)
+
+/**
+ *选择还款期数副标题的宽度
+ */
+#define huanKuanQiShuSubtitleLabelW (Width_Scall * 300)
+
+/**
+ 一遍的边距
+ 
+ @param 24 原型图的边距
+ @return 宽度比例
+ */
+#define spaceMargin (Width_Scall * 24)
+
+#define tabbarSelectedColor ColorWithRGB(79, 169, 56, 1)
+
+#define tabbarDefaultColor ColorWithRGB(123, 126, 131, 1)
+
+/**
+ 标题的黑颜色
+ */
+#define TitleColor ColorWithRGB(88, 88, 88, 1)
+//#define TitleColor [UIColor blackColor]
+
+/**
+ 结果为借钱成功改成1 等待审核改成0
+ */
+#define ifBorrowSuccess 1
+
+#define messageLabelBottomSpaceY (69/3)
+
+/**
+ 一般性的cell高度
+ */
+#define normalCellH (Width_Scall * 110) //* (SCREEN_WIDTH == 414?1.5:1)//87
+
+/**
+ 一般性的cell高度
+ */
+#define normalSectionHeadH (Width_Scall * 30)
+
+/**
+ 一般性的cell高度
+ */
+#define normalSectionFootH (Width_Scall * 10)
+
+/**
+ *钱包页头视图的高度
+ */
+//#define CollectionHeaderViewH (Width_Scall * 278)
+#define CollectionHeaderViewH (154)
+
+//490 459
+
+/**
+ 钱包页sectionHeight高度
+ */
+//#define qianbaoCollectionSectionHeadH (Width_Scall * 118)
+#define qianbaoCollectionSectionHeadH (Width_Scall * 118 + 10 / 3)
+
+/**
+ 钱包页sectionHead中NameLabelHeight高度
+ */
+//#define qianbaoCollectionSectionHeadNameLabelH (Width_Scall * 99)
+#define qianbaoCollectionSectionHeadNameLabelH (qianbaoCollectionSectionHeadH - Width_Scall * 20)
+/**
+ 钱包页CollectionCell高度
+ */
+//#define qianbaoCollectionCellH (Width_Scall * 208)
+//#define qianbaoCollectionCellH (Width_Scall * 210)
+#define qianbaoCollectionCellH (Width_Scall * 208 + 13)
+
+
+/**
+ 副标题的浅灰色
+ */
+#define SubtitleColor ColorWithRGB(152, 152, 152, 1)
+
+#define bankCards @[@{@"imageName":@"zhongguo",@"bankName":@"中国银行"},@{@"imageName":@"微众银行",@"bankName":@"微众银行"},@{@"imageName":@"xingye",@"bankName":@"兴业银行"},@{@"imageName":@"zhongxin",@"bankName":@"中信银行"},@{@"imageName":@"minsheng",@"bankName":@"民生银行"},@{@"imageName":@"gongshang",@"bankName":@"工商银行"},@{@"imageName":@"nongye",@"bankName":@"农业银行"},@{@"imageName":@"jiaotong",@"bankName":@"交通银行"},@{@"imageName":@"shanghai",@"bankName":@"上海银行"},@{@"imageName":@"jiangsu",@"bankName":@"江苏银行"},@{@"imageName":@"congqingnongcun",@"bankName":@"重庆农村商业银行"},@{@"imageName":@"huarong",@"bankName":@"华融湘江银行"},@{@"imageName":@"chouzhou",@"bankName":@"稠州银行"},@{@"imageName":@"chongqing",@"bankName":@"重庆银行"},@{@"imageName":@"gaungzhou",@"bankName":@"广州银行"},@{@"imageName":@"huaxing",@"bankName":@"广东华兴银行"},@{@"imageName":@"changsha",@"bankName":@"长沙银行"},@{@"imageName":@"luoyang",@"bankName":@"洛阳银行"},@{@"imageName":@"haerbin",@"bankName":@"哈尔滨银行"},@{@"imageName":@"guilin",@"bankName":@"桂林银行"},@{@"imageName":@"taian",@"bankName":@"泰安银行"},@{@"imageName":@"jiaxi",@"bankName":@"江西银行"},@{@"imageName":@"shangrao",@"bankName":@"上饶银行"},@{@"imageName":@"ningxia",@"bankName":@"宁夏银行"},@{@"imageName":@"jincheng",@"bankName":@"晋城银行"},@{@"imageName":@"quanzhou",@"bankName":@"泉州银行"},@{@"imageName":@"jiaxing",@"bankName":@"嘉兴银行"},@{@"imageName":@"jining",@"bankName":@"济宁银行"},@{@"imageName":@"shenzhennongshang",@"bankName":@"深圳农商银行"},@{@"imageName":@"changjiang",@"bankName":@"江苏长江商业银行"},@{@"imageName":@"laisahng",@"bankName":@"莱商银行"},@{@"imageName":@"jiujiang",@"bankName":@"九江银行"},@{@"imageName":@"dongya",@"bankName":@"东亚银行"},@{@"imageName":@"qishang",@"bankName":@"齐商银行"},@{@"imageName":@"pingan",@"bankName":@"平安银行"},@{@"imageName":@"pudongfazhan",@"bankName":@"浦发银行"},@{@"imageName":@"huaxia",@"bankName":@"华夏银行"},@{@"imageName":@"gaungfa",@"bankName":@"广发银行"},@{@"imageName":@"guangda",@"bankName":@"光大银行"},@{@"imageName":@"beijing",@"bankName":@"北京银行"},@{@"imageName":@"dongguan",@"bankName":@"东莞银行"},@{@"imageName":@"jianshe",@"bankName":@"建设银行"},@{@"imageName":@"youzheng",@"bankName":@"邮政储蓄银行"},@{@"imageName":@"zhaoshang",@"bankName":@"招商银行"}]
+
+#define bankCardsFull @[@{@"imageName":@"zhongguo",@"bankName":@"中国银行"},@{@"imageName":@"微众银行",@"bankName":@"微众银行"},@{@"imageName":@"xingye",@"bankName":@"兴业银行"},@{@"imageName":@"zhongxin",@"bankName":@"中信银行"},@{@"imageName":@"minsheng",@"bankName":@"民生银行"},@{@"imageName":@"gongshang",@"bankName":@"工商银行"},@{@"imageName":@"nongye",@"bankName":@"农业银行"},@{@"imageName":@"jiaotong",@"bankName":@"交通银行"},@{@"imageName":@"shanghai",@"bankName":@"上海银行"},@{@"imageName":@"jiangsu",@"bankName":@"江苏银行"},@{@"imageName":@"congqingnongcun",@"bankName":@"重庆农村商业银行"},@{@"imageName":@"huarong",@"bankName":@"华融湘江银行"},@{@"imageName":@"chouzhou",@"bankName":@"稠州银行"},@{@"imageName":@"chongqing",@"bankName":@"重庆银行"},@{@"imageName":@"gaungzhou",@"bankName":@"广州银行"},@{@"imageName":@"huaxing",@"bankName":@"广东华兴银行"},@{@"imageName":@"changsha",@"bankName":@"长沙银行"},@{@"imageName":@"luoyang",@"bankName":@"洛阳银行"},@{@"imageName":@"haerbin",@"bankName":@"哈尔滨银行"},@{@"imageName":@"guilin",@"bankName":@"桂林银行"},@{@"imageName":@"taian",@"bankName":@"泰安银行"},@{@"imageName":@"jiaxi",@"bankName":@"江西银行"},@{@"imageName":@"shangrao",@"bankName":@"昆山农商银行"},@{@"imageName":@"shangrao",@"bankName":@"上饶银行"},@{@"imageName":@"ningxia",@"bankName":@"宁夏银行"},@{@"imageName":@"jincheng",@"bankName":@"晋城银行"},@{@"imageName":@"quanzhou",@"bankName":@"泉州银行"},@{@"imageName":@"jiaxing",@"bankName":@"嘉兴银行"},@{@"imageName":@"jining",@"bankName":@"济宁银行"},@{@"imageName":@"shenzhennongshang",@"bankName":@"深圳农商银行"},@{@"imageName":@"changjiang",@"bankName":@"江苏长江商业银行"},@{@"imageName":@"laisahng",@"bankName":@"莱商银行"},@{@"imageName":@"laisahng",@"bankName":@"遂宁银行"},@{@"imageName":@"jiujiang",@"bankName":@"九江银行"},@{@"imageName":@"dongya",@"bankName":@"东亚银行"},@{@"imageName":@"qishang",@"bankName":@"齐商银行"},@{@"imageName":@"pingan",@"bankName":@"平安银行"},@{@"imageName":@"pudongfazhan",@"bankName":@"浦发银行"},@{@"imageName":@"huaxia",@"bankName":@"华夏银行"},@{@"imageName":@"gaungfa",@"bankName":@"广发银行"},@{@"imageName":@"guangda",@"bankName":@"光大银行"},@{@"imageName":@"beijing",@"bankName":@"北京银行"},@{@"imageName":@"dongguan",@"bankName":@"东莞银行"},@{@"imageName":@"jianshe",@"bankName":@"建设银行"},@{@"imageName":@"youzheng",@"bankName":@"邮政储蓄银行"},@{@"imageName":@"zhaoshang",@"bankName":@"招商银行"}]
+
+//#define eduBGViewH (Width_ScallPlus * 1282)
+#define eduBGViewH (1282/3)
+#define eduBGViewHaveDataH (1282/3)//(1104/3)
+#define eduBGViewTextColor ColorWithRGB(144, 144, 144, 1)//ColorWithRGB(165, 163, 164, 1)//144
+#define yellowHornImageColor ColorWithRGB(224, 175, 35, 1)
+
+#define maxCardNum 8
+
+#define grayNavigationBGColor ColorWithRGB(236, 237, 238, 1)//204
+
+#define LineGrayColor ColorWithRGB(204, 204, 204, 1)
+
+#define baseViewVCBG ColorWithRGB(239, 239, 239, 1)
+
+#define openCountKey @"openasdasd"
+
+#define openCount 400000
+//用于存储降利之前的信息
+//#define DownLi @"Downliold"
+//#define DownLiNew @"Downlinew"
+
+//空值判断
+static inline BOOL IsEmptyValue(id thing) {
+    return thing == nil
+    || ([thing respondsToSelector:@selector(length)]
+        && [(NSData *)thing length] == 0)
+    || ([thing respondsToSelector:@selector(count)]
+        && [(NSArray *)thing count] == 0)
+    ||  ([thing isKindOfClass:[NSNull class]]);
+}
+
+#endif /* PrefixHeader_pch */

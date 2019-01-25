@@ -1,0 +1,23 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
+  - Masonry (1.1.0)
+  - MBProgressHUD (0.9.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0 (~> 2.2.0)
+  - Masonry
+  - MBProgressHUD (~> 0.9.2)
+  - SDWebImage (~> 4.0.0)
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+
+PODFILE CHECKSUM: 6d2899936fd1d43331d3f87d469936fabfdd056f
+
+COCOAPODS: 1.3.1
